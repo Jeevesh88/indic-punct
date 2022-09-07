@@ -54,6 +54,12 @@ def write_file(file_path: str, data: List[str]):
 
 
 def indian_format(word, digits='0123456789'):
+    """Adds commas in Indian Fornat.
+    Args:
+        word: a single token.
+    Returns:
+        string with added commas.
+    """
     word_contains_digit = any(map(str.isdigit, word))
     currency_sign = ''
     if word_contains_digit:
@@ -81,7 +87,9 @@ def parse_args():
     parser.add_argument("--input", help="input file path", required=True, type=str)
     parser.add_argument("--output", help="output file path", required=True, type=str)
     parser.add_argument("--verbose", help="print denormalization info. For debugging", action='store_true')
-    parser.add_argument("--inverse_normalizer", default='nemo', type=str)
+    parser.add_argument("--inverse_normalizer", default="nemo(refers to nvidia NeMo). \
+                                                         See: https://github.com/NVIDIA/NeMo/tree/main/nemo_text_processing/inverse_text_normalization/en",
+                        type=str)
     return parser.parse_args()
 
 
