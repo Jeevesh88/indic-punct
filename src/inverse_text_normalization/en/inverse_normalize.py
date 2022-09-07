@@ -164,7 +164,7 @@ def inverse_normalize(text: str, verbose: bool) -> str:
     Returns: written form
     """
 
-    text = pynini.escape(text)
+    text = pynini.escape(text) #Escape special characters for pynini processing: [,],\
     tagged_lattice = find_tags(text)
     tagged_text = select_tag(tagged_lattice)
     parser(tagged_text)
