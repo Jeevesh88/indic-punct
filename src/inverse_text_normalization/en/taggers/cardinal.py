@@ -51,7 +51,8 @@ class CardinalFst(GraphFst):
         
         graph_hundred = pynini.cross("hundred", "")
 
-        graph_hundred_component = pynini.union(graph_digit + delete_space + graph_hundred, pynutil.insert("0"))
+        #FST to transduce the hundreds component
+        graph_hundred_component = pynini.union(graph_digit + delete_space + graph_hundred, pynutil.insert("0")) #two hundred -> 2
         graph_hundred_component += delete_space
         graph_hundred_component += pynini.union(
             graph_teen | pynutil.insert("00"),
